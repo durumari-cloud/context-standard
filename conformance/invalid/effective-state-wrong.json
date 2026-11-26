@@ -1,0 +1,101 @@
+{
+  "why": "the effective state follows from the effects",
+  "expect": "effective state should be",
+  "value": {
+    "standard": "durumari-context/0.1",
+    "id": "665da71f-78d4-5382-b05e-303a2fac4b4d",
+    "space_id": "space-example",
+    "revision": 1,
+    "state": "active",
+    "effective_state": "active",
+    "efficacy": {
+      "current_revision": 1,
+      "current_state": "active",
+      "status": "active",
+      "decision_count": 1,
+      "generation": 1
+    },
+    "lifecycle": [
+      {
+        "id": "662113361cb10bf5011e2061",
+        "source_id": "fa02302b-8ba2-5f11-886d-e759e6ad024f",
+        "source_revision": 1,
+        "target_revision": 1,
+        "scopes": [
+          {
+            "section_id": "1425dbdde6734b63",
+            "start": 46,
+            "end": 112,
+            "whole": false
+          }
+        ]
+      }
+    ],
+    "tier": "hot",
+    "properties": {
+      "type_id": "spec",
+      "values": {
+        "spec.status": "s3",
+        "spec.owner": [
+          "7eb30a63-2c3c-56df-9425-b4de243dea41"
+        ]
+      }
+    },
+    "created_at": "2026-01-05T09:00:00Z",
+    "updated_at": "2026-01-05T09:00:00Z",
+    "revisions": [
+      {
+        "context_id": "665da71f-78d4-5382-b05e-303a2fac4b4d",
+        "revision": 1,
+        "title": "HTTP client — timeouts and retries for partner APIs",
+        "summary": "Every partner API request has a timeout and is retried; this spec fixes both.",
+        "tags": [
+          "APP-11",
+          "area-api"
+        ],
+        "kind": "spec",
+        "state": "active",
+        "trust": "reported",
+        "body": "# Purpose and scope\nThe HTTP client used by the export service talks to partner APIs.\n\n# Requirements\n- Every request has a timeout.\n- Failed requests are retried three times with a fixed 1 s delay.\n\n# Acceptance criteria\n- A request that never answers fails after the timeout.\n\n# Out of scope\nStreaming downloads.\n",
+        "sections": [
+          {
+            "id": "86d81637c62050d2",
+            "title": "Purpose and scope",
+            "text": "# Purpose and scope\nThe HTTP client used by the export service talks to partner APIs.\n\n",
+            "sha256": "4265c741f153d9cd2743656fb1c36826bc40c8703ef16ea8100ab5625d0499b4"
+          },
+          {
+            "id": "1425dbdde6734b63",
+            "title": "Requirements",
+            "text": "# Requirements\n- Every request has a timeout.\n- Failed requests are retried three times with a fixed 1 s delay.\n\n",
+            "sha256": "22876b87199a96c4b156cd9a039553de6ddb1223ebc59f3446fe7d9065e6895f"
+          },
+          {
+            "id": "10efbd5d571834cc",
+            "title": "Acceptance criteria",
+            "text": "# Acceptance criteria\n- A request that never answers fails after the timeout.\n\n",
+            "sha256": "88a6359bd06469731b6e8202acc01ea11c14af0867dd85fc9af86f10b92801a7"
+          },
+          {
+            "id": "56fe4e00a1516582",
+            "title": "Out of scope",
+            "text": "# Out of scope\nStreaming downloads.\n",
+            "sha256": "e2e582ba76c7b3d9773efad1dda5a31fa1638c7364f2553fd29ed47b03348b03"
+          }
+        ],
+        "provenance": [
+          {
+            "kind": "user",
+            "excerpt": "Partner calls hang forever sometimes; add timeouts."
+          }
+        ],
+        "supersedes": [],
+        "created_at": "2026-01-05T09:00:00Z",
+        "author": {
+          "kind": "person",
+          "id": "7eb30a63-2c3c-56df-9425-b4de243dea41"
+        }
+      }
+    ]
+  }
+}

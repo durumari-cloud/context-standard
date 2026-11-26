@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:durumari-context-standard:0.1:schema:provenance",
+  "title": "Provenance entry",
+  "description": "Where the content of a revision came from (spec chapter 5).",
+  "type": "object",
+  "required": ["kind"],
+  "additionalProperties": false,
+  "properties": {
+    "kind": { "enum": ["user", "agent", "document"] },
+    "source_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "session_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "source_url": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/httpUrl" },
+    "excerpt": { "type": "string", "maxLength": 800 }
+  }
+}

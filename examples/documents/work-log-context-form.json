@@ -1,0 +1,63 @@
+{
+  "standard": "durumari-context/0.1",
+  "id": "a2aa2e4a-2f92-58e2-ba6e-3fb11b2750a6",
+  "space_id": "space-example",
+  "revision": 1,
+  "state": "active",
+  "effective_state": "active",
+  "efficacy": {
+    "current_revision": 1,
+    "current_state": "active",
+    "status": "active",
+    "decision_count": 0,
+    "generation": 0
+  },
+  "lifecycle": [],
+  "tier": "hot",
+  "created_at": "2026-01-21T15:06:00Z",
+  "updated_at": "2026-01-21T15:06:00Z",
+  "revisions": [
+    {
+      "context_id": "a2aa2e4a-2f92-58e2-ba6e-3fb11b2750a6",
+      "revision": 1,
+      "title": "Work log — Stream large CSV exports(APP-15)",
+      "summary": "agent-2(Ada Example) streams large CSV exports; remaining: chunked writer and a 200,000-row load test.",
+      "tags": [
+        "work-log",
+        "APP-15"
+      ],
+      "kind": "action",
+      "state": "active",
+      "trust": "reported",
+      "body": "agent-2(Ada Example) is streaming the CSV export; remaining: chunked writer, load test.\n\n## Current state\nGoal: stream large CSV exports past the gateway timeout.\nRemaining: chunked writer, load test with 200,000 rows.\n\n## Progress log\nagent-1(Ada Example) 09:10 feat/export-stream@3f2a9c1: plan written · in progress\nagent-1(Ada Example) 11:42 feat/export-stream@8b7e0d4: streaming response added · tests pass\nagent-2(Ada Example) 15:05 feat/export-stream@8b7e0d4: took over from agent-1 · in progress\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "agent-2(Ada Example) is streaming the CSV export; remaining: chunked writer, load test.\n\n",
+          "sha256": "1be319e8790c9e07bcd8ed4ace6a8a48eab17b00daa93814ec2924024d871810"
+        },
+        {
+          "id": "1686790b69c098ac",
+          "title": "Current state",
+          "text": "## Current state\nGoal: stream large CSV exports past the gateway timeout.\nRemaining: chunked writer, load test with 200,000 rows.\n\n",
+          "sha256": "fe36dab507e700caf60a216aefcd71e055a900a4af01c0bddeb9bfa6e458c892"
+        },
+        {
+          "id": "a07eff7be29f2144",
+          "title": "Progress log",
+          "text": "## Progress log\nagent-1(Ada Example) 09:10 feat/export-stream@3f2a9c1: plan written · in progress\nagent-1(Ada Example) 11:42 feat/export-stream@8b7e0d4: streaming response added · tests pass\nagent-2(Ada Example) 15:05 feat/export-stream@8b7e0d4: took over from agent-1 · in progress\n",
+          "sha256": "53dd45c4f185750383edf32680d0815ce7625f9776f28ab740cfbd0237987946"
+        }
+      ],
+      "provenance": [
+        {
+          "kind": "agent",
+          "session_id": "session-example-0001"
+        }
+      ],
+      "supersedes": [],
+      "created_at": "2026-01-21T15:06:00Z"
+    }
+  ]
+}

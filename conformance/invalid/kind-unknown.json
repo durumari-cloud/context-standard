@@ -1,0 +1,90 @@
+{
+  "why": "kinds are a closed set",
+  "expect": "memo",
+  "value": {
+    "standard": "durumari-context/0.1",
+    "id": "3104ae57-508e-519e-982d-d73bdf739d67",
+    "space_id": "space-example",
+    "revision": 1,
+    "state": "active",
+    "effective_state": "active",
+    "efficacy": {
+      "current_revision": 1,
+      "current_state": "active",
+      "status": "active",
+      "decision_count": 0,
+      "generation": 0
+    },
+    "lifecycle": [],
+    "key": "APP-15",
+    "aliases": [
+      "EXP-3"
+    ],
+    "tier": "hot",
+    "properties": {
+      "type_id": "issue",
+      "values": {
+        "issue.status": "i2",
+        "issue.severity": "v3",
+        "issue.assignee": [
+          "7eb30a63-2c3c-56df-9425-b4de243dea41"
+        ],
+        "issue.key": 15,
+        "issue.type": "t4",
+        "issue.due": "2026-02-06"
+      }
+    },
+    "created_at": "2026-01-20T14:00:00Z",
+    "updated_at": "2026-01-20T14:00:00Z",
+    "revisions": [
+      {
+        "context_id": "3104ae57-508e-519e-982d-d73bdf739d67",
+        "revision": 1,
+        "title": "Large CSV export — stops at the 60 s gateway timeout",
+        "summary": "Exports of very large reports fail at the gateway's 60-second limit.",
+        "tags": [
+          "APP-15",
+          "area-export"
+        ],
+        "kind": "memo",
+        "state": "active",
+        "trust": "reported",
+        "body": "# Problem or question\nCSV export of large reports stops after 60 seconds.\n\n# Observations and evidence\n- Reproduced with a 200,000-row report on a test space.\n- The gateway closes the connection at 60 s.\n\n# Impact and risk\nUsers with large reports cannot export them.\n\n# Resolution conditions\nA 200,000-row export completes or streams.\n",
+        "sections": [
+          {
+            "id": "36190fec482e686b",
+            "title": "Problem or question",
+            "text": "# Problem or question\nCSV export of large reports stops after 60 seconds.\n\n",
+            "sha256": "bace8ca6e2d9199b097cd1af9d554208dfbf16a4d86342099fba308503e5f99d"
+          },
+          {
+            "id": "1ed552413d5b0fdb",
+            "title": "Observations and evidence",
+            "text": "# Observations and evidence\n- Reproduced with a 200,000-row report on a test space.\n- The gateway closes the connection at 60 s.\n\n",
+            "sha256": "c2bcc978932b8022801cf5a471e40489ac8ec7ef50297e0eadd9ecf570672192"
+          },
+          {
+            "id": "f5fecfb215641905",
+            "title": "Impact and risk",
+            "text": "# Impact and risk\nUsers with large reports cannot export them.\n\n",
+            "sha256": "35d2befe0a4bcbb9add1e6be3e5d75ef684286d7593d12f48d61820029f6a2ad"
+          },
+          {
+            "id": "f4fd0daf540c0fc2",
+            "title": "Resolution conditions",
+            "text": "# Resolution conditions\nA 200,000-row export completes or streams.\n",
+            "sha256": "2ec96c7e517ecd7c25777e253ef347e1a654a275c92c68f41a8da4f0c70d98ff"
+          }
+        ],
+        "provenance": [
+          {
+            "kind": "user",
+            "excerpt": "Export just stops for our biggest report."
+          }
+        ],
+        "supersedes": [],
+        "created_at": "2026-01-20T14:00:00Z"
+      }
+    ]
+  }
+}

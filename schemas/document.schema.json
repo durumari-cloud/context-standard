@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:durumari-context-standard:0.1:schema:document",
+  "title": "Document",
+  "description": "A document (Context) with its revision history, as exchanged between implementations (spec chapter 1.2).",
+  "type": "object",
+  "required": ["id", "space_id", "revision", "state", "effective_state", "efficacy", "lifecycle", "revisions"],
+  "additionalProperties": false,
+  "properties": {
+    "standard": { "const": "durumari-context/0.1" },
+    "id": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/id" },
+    "space_id": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "revision": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/revisionNumber" },
+    "state": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/state" },
+    "effective_state": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/effectiveState" },
+    "efficacy": { "$ref": "urn:durumari-context-standard:0.1:schema:supersession#/$defs/efficacy" },
+    "lifecycle": {
+      "type": "array",
+      "items": { "$ref": "urn:durumari-context-standard:0.1:schema:supersession#/$defs/effect" }
+    },
+    "key": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/documentKey" },
+    "aliases": {
+      "type": "array",
+      "items": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/documentKey" },
+      "uniqueItems": true
+    },
+    "tier": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/tier" },
+    "properties": { "$ref": "urn:durumari-context-standard:0.1:schema:properties" },
+    "created_at": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/timestamp" },
+    "updated_at": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/timestamp" },
+    "revisions": {
+      "type": "array",
+      "items": { "$ref": "urn:durumari-context-standard:0.1:schema:revision" },
+      "minItems": 1
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "context_id": "3104ae57-508e-519e-982d-d73bdf739d67",
+  "column_id": "issue.status",
+  "column_name": "Status",
+  "column_kind": "status",
+  "before": "i1",
+  "after": "i2",
+  "labels": {
+    "i1": "To do",
+    "i2": "In progress"
+  },
+  "actor_id": "7eb30a63-2c3c-56df-9425-b4de243dea41",
+  "actor_kind": "person",
+  "via": "web",
+  "cause": {
+    "kind": "edit"
+  },
+  "at": "2026-01-21T09:00:00Z"
+}

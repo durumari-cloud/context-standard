@@ -1,0 +1,9 @@
+{
+  "why": "provenance entries allow only the listed fields",
+  "schema": "urn:durumari-context-standard:0.1:schema:provenance",
+  "expect": "Additional properties",
+  "value": {
+    "kind": "user",
+    "transcript": "full conversation"
+  }
+}

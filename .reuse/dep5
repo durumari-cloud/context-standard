@@ -1,0 +1,12 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Durumari Context Standard
+Source: https://github.com/durumari-cloud/context-standard
+Disclaimer: "Durumari" is a trademark. Neither license grants any right to use it.
+
+Files: spec/* README.md CHANGELOG.md
+Copyright: 2026 Durumari Context Standard contributors
+License: CC-BY-4.0
+
+Files: schemas/* registry/* templates/* examples/* conformance/* .github/* VERSION .gitignore .gitattributes .reuse/*
+Copyright: 2026 Durumari Context Standard contributors
+License: Apache-2.0

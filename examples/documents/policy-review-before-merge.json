@@ -1,0 +1,64 @@
+{
+  "standard": "durumari-context/0.1",
+  "id": "29a4216e-f1bf-5489-8819-313b99c8c642",
+  "space_id": "space-example",
+  "revision": 1,
+  "state": "active",
+  "effective_state": "active",
+  "efficacy": {
+    "current_revision": 1,
+    "current_state": "active",
+    "status": "active",
+    "decision_count": 0,
+    "generation": 0
+  },
+  "lifecycle": [],
+  "tier": "hot",
+  "created_at": "2026-01-08T07:00:00Z",
+  "updated_at": "2026-01-08T07:00:00Z",
+  "revisions": [
+    {
+      "context_id": "29a4216e-f1bf-5489-8819-313b99c8c642",
+      "revision": 1,
+      "title": "Policy — review and CI pass before every merge",
+      "summary": "Every merge to main needs a passing automated review and CI run.",
+      "tags": [
+        "policy",
+        "area-delivery"
+      ],
+      "kind": "instruction",
+      "state": "active",
+      "trust": "reported",
+      "body": "# Scope\nChanges merged into the main branch of the example repository.\n\n# Rule or procedure\n1. Run the quick check before pushing.\n2. Open a pull request; an automated review and CI must pass before merge.\n\n# Exceptions and stop conditions\nStop and ask a person when a check cannot run.\n\n# Source\nTeam agreement recorded in the decision log.\n",
+      "sections": [
+        {
+          "id": "e66f833aa88bd39d",
+          "title": "Scope",
+          "text": "# Scope\nChanges merged into the main branch of the example repository.\n\n",
+          "sha256": "73054c64a19a22fd3112512a605b105bfb3d1a18ece97a26af3731795ff82c02"
+        },
+        {
+          "id": "f6d4e5da28c67586",
+          "title": "Rule or procedure",
+          "text": "# Rule or procedure\n1. Run the quick check before pushing.\n2. Open a pull request; an automated review and CI must pass before merge.\n\n",
+          "sha256": "a76585c353df0fe109eb4483a261494b22d48713f5a704e16cf2d2247398afcf"
+        },
+        {
+          "id": "9622f0cd4b08a738",
+          "title": "Exceptions and stop conditions",
+          "text": "# Exceptions and stop conditions\nStop and ask a person when a check cannot run.\n\n",
+          "sha256": "5090bf9564ec02a10681fbcb556decc6a00f30f0aa231b6d283df1737ab25abf"
+        },
+        {
+          "id": "01f7af784942865f",
+          "title": "Source",
+          "text": "# Source\nTeam agreement recorded in the decision log.\n",
+          "sha256": "a81cb65a5467a805d76694999cfbfe08f69d8208d0912618c761c6d5aee450dd"
+        }
+      ],
+      "provenance": [],
+      "supersedes": [],
+      "created_at": "2026-01-08T07:00:00Z"
+    }
+  ]
+}

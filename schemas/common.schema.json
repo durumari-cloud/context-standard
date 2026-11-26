@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:durumari-context-standard:0.1:schema:common",
+  "title": "Common definitions",
+  "description": "Shared definitions of the Durumari Context Standard v0.1.",
+  "$defs": {
+    "id": {
+      "description": "Opaque lower-case UUID identifier.",
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "sectionId": {
+      "description": "First 16 hex digits of SHA-256(basis + ':' + occurrence).",
+      "type": "string",
+      "pattern": "^[0-9a-f]{16}$"
+    },
+    "revisionNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "timestamp": {
+      "description": "RFC 3339 date-time.",
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?(Z|[+-][0-9]{2}:[0-9]{2})$"
+    },
+    "kind": {
+      "enum": [
+        "request", "idea", "spec", "architecture", "resource", "decision", "plan",
+        "action", "issue", "instruction", "report", "glossary", "note"
+      ]
+    },
+    "state": {
+      "enum": ["active", "stale", "withdrawn", "deleted"]
+    },
+    "effectiveState": {
+      "enum": ["active", "partial", "superseded", "needs_review", "stale", "withdrawn", "deleted"]
+    },
+    "trust": {
+      "enum": ["reported", "verified", "human_confirmed"]
+    },
+    "tier": {
+      "enum": ["hot", "warm", "cold"]
+    },
+    "tag": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^\\S(.*\\S)?$"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/tag" },
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "pattern": "\\S"
+    },
+    "summary": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "documentKey": {
+      "description": "PREFIX-number document key, upper-cased.",
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9]{1,9}-[1-9][0-9]{0,11}$"
+    },
+    "actorKind": {
+      "enum": ["person", "agent", "integration", "import", "system"]
+    },
+    "actor": {
+      "type": "object",
+      "required": ["kind"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "$ref": "#/$defs/actorKind" },
+        "id": { "type": "string", "maxLength": 128 },
+        "label": { "type": "string", "maxLength": 120 }
+      }
+    },
+    "httpUrl": {
+      "description": "http or https URL without user name or password.",
+      "type": "string",
+      "maxLength": 2048,
+      "pattern": "^https?://[^\\s/@:?#]+(:[0-9]{1,5})?([/?#][^\\s]*)?$"
+    }
+  }
+}

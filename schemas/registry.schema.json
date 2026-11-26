@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:durumari-context-standard:0.1:schema:registry",
+  "title": "Registries",
+  "description": "Shapes of registry/kinds.json and registry/standard-types.json.",
+  "$defs": {
+    "localized": {
+      "type": "object",
+      "required": ["en"],
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "kinds": {
+      "type": "object",
+      "required": ["version", "kinds"],
+      "additionalProperties": false,
+      "properties": {
+        "version": { "type": "string" },
+        "kinds": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "label", "question", "template"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/kind" },
+              "label": { "$ref": "#/$defs/localized" },
+              "question": { "$ref": "#/$defs/localized" },
+              "template": {
+                "type": "object",
+                "required": ["version", "sections"],
+                "additionalProperties": false,
+                "properties": {
+                  "version": { "type": "integer", "minimum": 1 },
+                  "sections": {
+                    "type": "array",
+                    "items": { "$ref": "#/$defs/localized" },
+                    "minItems": 4,
+                    "maxItems": 4
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "standardTypes": {
+      "type": "object",
+      "required": ["version", "automatic_columns", "column_kinds", "status_groups", "types"],
+      "additionalProperties": false,
+      "properties": {
+        "version": { "type": "string" },
+        "automatic_columns": {
+          "type": "array",
+          "items": { "$ref": "urn:durumari-context-standard:0.1:schema:document-type#/$defs/column" }
+        },
+        "column_kinds": {
+          "type": "array",
+          "items": { "$ref": "urn:durumari-context-standard:0.1:schema:document-type#/$defs/columnKind" }
+        },
+        "status_groups": { "const": ["todo", "doing", "done"] },
+        "types": {
+          "type": "array",
+          "items": { "$ref": "urn:durumari-context-standard:0.1:schema:document-type" }
+        }
+      }
+    }
+  }
+}

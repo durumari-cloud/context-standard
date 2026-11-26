@@ -1,0 +1,173 @@
+{
+  "standard": "durumari-context/0.1",
+  "id": "fa02302b-8ba2-5f11-886d-e759e6ad024f",
+  "space_id": "space-example",
+  "revision": 2,
+  "state": "active",
+  "effective_state": "active",
+  "efficacy": {
+    "current_revision": 2,
+    "current_state": "active",
+    "status": "active",
+    "decision_count": 0,
+    "generation": 0
+  },
+  "lifecycle": [],
+  "tier": "hot",
+  "properties": {
+    "type_id": "decision",
+    "values": {
+      "decision.date": "2026-01-12",
+      "decision.basis": [
+        "665da71f-78d4-5382-b05e-303a2fac4b4d"
+      ]
+    }
+  },
+  "created_at": "2026-01-12T10:30:00Z",
+  "updated_at": "2026-01-13T08:15:00Z",
+  "revisions": [
+    {
+      "context_id": "fa02302b-8ba2-5f11-886d-e759e6ad024f",
+      "revision": 1,
+      "title": "Retry policy — exponential backoff for partner APIs",
+      "summary": "Partner API calls retry with exponential backoff instead of a fixed delay.",
+      "tags": [
+        "APP-12",
+        "area-api"
+      ],
+      "kind": "decision",
+      "state": "active",
+      "trust": "reported",
+      "body": "# What was chosen\nRetry with exponential backoff.\n\n# Reasons and evidence\nFixed delays caused bursts against a rate-limited partner.\n\n# Alternatives considered\n- Fixed delay (current spec)\n- No retries\n\n# Impact and replacement\nReplaces the retry line of the HTTP client spec.\n",
+      "sections": [
+        {
+          "id": "f046b6d99e021a0d",
+          "title": "What was chosen",
+          "text": "# What was chosen\nRetry with exponential backoff.\n\n",
+          "sha256": "2ff87688ca965b66f045bb79562bb2291c7eddf636cad755284610b8d89832d0"
+        },
+        {
+          "id": "19612ae705aab84f",
+          "title": "Reasons and evidence",
+          "text": "# Reasons and evidence\nFixed delays caused bursts against a rate-limited partner.\n\n",
+          "sha256": "807facc66113666ee047663f5893e3f16db8a8cbf6182dab2d0c30e22ee1b6cd"
+        },
+        {
+          "id": "f65912bb7629bf5d",
+          "title": "Alternatives considered",
+          "text": "# Alternatives considered\n- Fixed delay (current spec)\n- No retries\n\n",
+          "sha256": "259a1a587835621b17f168a25765ada2a9156219d5fa62604cc7390bb34e6150"
+        },
+        {
+          "id": "d37c02a659e4043e",
+          "title": "Impact and replacement",
+          "text": "# Impact and replacement\nReplaces the retry line of the HTTP client spec.\n",
+          "sha256": "ae98c20d66ee90201bc5442fbb1121f48f058ae54e45cad05d593a69a0a988f7"
+        }
+      ],
+      "provenance": [
+        {
+          "kind": "user",
+          "excerpt": "Let's stop hammering the partner after errors."
+        },
+        {
+          "kind": "document",
+          "source_id": "665da71f-78d4-5382-b05e-303a2fac4b4d"
+        },
+        {
+          "kind": "agent",
+          "session_id": "session-example-0001"
+        }
+      ],
+      "supersedes": [
+        {
+          "context_id": "665da71f-78d4-5382-b05e-303a2fac4b4d",
+          "revision": 1,
+          "scopes": [
+            {
+              "section_id": "1425dbdde6734b63",
+              "before_sha256": "22876b87199a96c4b156cd9a039553de6ddb1223ebc59f3446fe7d9065e6895f",
+              "start": 46,
+              "end": 112
+            }
+          ]
+        }
+      ],
+      "created_at": "2026-01-12T10:30:00Z",
+      "author": {
+        "kind": "agent",
+        "label": "agent-1"
+      }
+    },
+    {
+      "context_id": "fa02302b-8ba2-5f11-886d-e759e6ad024f",
+      "revision": 2,
+      "title": "Retry policy — exponential backoff with a 30 s cap",
+      "summary": "Partner API calls retry up to five times with capped exponential backoff and jitter.",
+      "tags": [
+        "APP-12",
+        "area-api"
+      ],
+      "kind": "decision",
+      "state": "active",
+      "trust": "reported",
+      "body": "# What was chosen\nRetry up to five times with exponential backoff (base 0.5 s, cap 30 s, full jitter).\n\n# Reasons and evidence\nFixed delays caused bursts against a rate-limited partner.\n\n# Alternatives considered\n- Fixed delay (current spec)\n- No retries\n\n# Impact and replacement\nReplaces the retry line of the HTTP client spec.\n",
+      "sections": [
+        {
+          "id": "f046b6d99e021a0d",
+          "title": "What was chosen",
+          "text": "# What was chosen\nRetry up to five times with exponential backoff (base 0.5 s, cap 30 s, full jitter).\n\n",
+          "sha256": "c204a51ec12340b739d166b71737b8ff59cb6e5a496744c303c0f2743d337359"
+        },
+        {
+          "id": "19612ae705aab84f",
+          "title": "Reasons and evidence",
+          "text": "# Reasons and evidence\nFixed delays caused bursts against a rate-limited partner.\n\n",
+          "sha256": "807facc66113666ee047663f5893e3f16db8a8cbf6182dab2d0c30e22ee1b6cd"
+        },
+        {
+          "id": "f65912bb7629bf5d",
+          "title": "Alternatives considered",
+          "text": "# Alternatives considered\n- Fixed delay (current spec)\n- No retries\n\n",
+          "sha256": "259a1a587835621b17f168a25765ada2a9156219d5fa62604cc7390bb34e6150"
+        },
+        {
+          "id": "d37c02a659e4043e",
+          "title": "Impact and replacement",
+          "text": "# Impact and replacement\nReplaces the retry line of the HTTP client spec.\n",
+          "sha256": "ae98c20d66ee90201bc5442fbb1121f48f058ae54e45cad05d593a69a0a988f7"
+        }
+      ],
+      "provenance": [
+        {
+          "kind": "user",
+          "excerpt": "Cap it at 30 seconds and add jitter."
+        },
+        {
+          "kind": "document",
+          "source_id": "665da71f-78d4-5382-b05e-303a2fac4b4d",
+          "source_url": "https://example.com/docs/partner-rate-limits"
+        }
+      ],
+      "supersedes": [
+        {
+          "context_id": "665da71f-78d4-5382-b05e-303a2fac4b4d",
+          "revision": 1,
+          "scopes": [
+            {
+              "section_id": "1425dbdde6734b63",
+              "before_sha256": "22876b87199a96c4b156cd9a039553de6ddb1223ebc59f3446fe7d9065e6895f",
+              "start": 46,
+              "end": 112
+            }
+          ]
+        }
+      ],
+      "created_at": "2026-01-13T08:15:00Z",
+      "author": {
+        "kind": "person",
+        "id": "7eb30a63-2c3c-56df-9425-b4de243dea41"
+      }
+    }
+  ]
+}

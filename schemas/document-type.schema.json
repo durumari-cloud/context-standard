@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:durumari-context-standard:0.1:schema:document-type",
+  "title": "Document type",
+  "description": "A standard, system or custom document type with its columns (spec chapter 4).",
+  "type": "object",
+  "required": ["id", "name", "columns"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "name": { "$ref": "#/$defs/name" },
+    "description": { "type": "string", "maxLength": 300 },
+    "icon": { "type": "string", "maxLength": 32 },
+    "standard": { "type": "boolean" },
+    "system": { "type": "boolean" },
+    "kinds": {
+      "description": "Stored kinds that map to this type when no explicit type_id is stored.",
+      "type": "array",
+      "items": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/kind" },
+      "uniqueItems": true
+    },
+    "new_kind": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/kind" },
+    "explicit": {
+      "description": "Stored as the document's own type_id instead of being derived from its kind.",
+      "type": "boolean"
+    },
+    "default_view": { "enum": ["table", "dedicated"] },
+    "default_enabled": { "type": "boolean" },
+    "columns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/column" }
+    }
+  },
+  "$defs": {
+    "name": {
+      "oneOf": [
+        { "type": "string", "minLength": 1, "maxLength": 80 },
+        {
+          "description": "Localized names keyed by BCP 47 language tag.",
+          "type": "object",
+          "minProperties": 1,
+          "propertyNames": { "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]{2,8})*$" },
+          "additionalProperties": { "type": "string", "minLength": 1, "maxLength": 80 }
+        }
+      ]
+    },
+    "columnKind": {
+      "enum": [
+        "text", "number", "date", "select", "multi_select", "status", "checkbox", "person",
+        "url", "email", "phone", "file", "relation", "unique_id",
+        "created_by", "created_at", "updated_by", "updated_at"
+      ]
+    },
+    "choice": {
+      "type": "object",
+      "required": ["id", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 36 },
+        "name": { "$ref": "#/$defs/name" },
+        "color": { "type": "string", "pattern": "^[a-z]{3,12}$" },
+        "group": { "enum": ["todo", "doing", "done"] }
+      }
+    },
+    "options": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "choices": { "type": "array", "items": { "$ref": "#/$defs/choice" } },
+        "default": { "type": "string", "minLength": 1 },
+        "transitions": {
+          "type": "object",
+          "additionalProperties": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+        },
+        "require_reason": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "reason_column": { "type": "string", "minLength": 1 },
+        "max": { "type": "integer", "minimum": 1, "maximum": 50 },
+        "target_type": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "parent": { "type": "boolean" },
+        "assignee": { "type": "boolean" },
+        "format": { "enum": ["number", "percent", "won"] },
+        "numbering": { "enum": ["cloud", "space"] },
+        "prefix": { "type": "string", "pattern": "^[A-Za-z0-9\\uAC00-\\uD7A3]{0,10}$" },
+        "next": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "column": {
+      "type": "object",
+      "required": ["id", "name", "kind"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "name": { "$ref": "#/$defs/name" },
+        "kind": { "$ref": "#/$defs/columnKind" },
+        "options": { "$ref": "#/$defs/options" },
+        "position": { "type": "integer", "minimum": 0 },
+        "base": { "type": "boolean" },
+        "readonly": { "type": "boolean" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "enum": ["select", "status"] } } },
+          "then": { "required": ["options"], "properties": { "options": { "required": ["choices"] } } }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "unique_id" } } },
+          "then": { "required": ["options"], "properties": { "options": { "required": ["numbering"] } } }
+        }
+      ]
+    }
+  }
+}

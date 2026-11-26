@@ -1,0 +1,16 @@
+{
+  "why": "start and end go together",
+  "schema": "urn:durumari-context-standard:0.1:schema:supersession",
+  "expect": "dependency",
+  "value": {
+    "context_id": "665da71f-78d4-5382-b05e-303a2fac4b4d",
+    "revision": 1,
+    "scopes": [
+      {
+        "section_id": "0123456789abcdef",
+        "before_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "start": 3
+      }
+    ]
+  }
+}

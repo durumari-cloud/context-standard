@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2026 Durumari Context Standard contributors
+# SPDX-License-Identifier: Apache-2.0
+name: conformance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install pinned dependencies
+        run: python -m pip install --require-hashes -r conformance/requirements.txt
+      - name: Templates match their source
+        run: python templates/generate.py --check
+      - name: Conformance suite
+        run: python -m pytest -q conformance
+      - name: Check the examples with the command-line checker
+        run: python conformance/checks.py examples/documents/*.json examples/work-logs/*.json examples/document-types/*.json

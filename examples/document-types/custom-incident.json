@@ -1,0 +1,88 @@
+{
+  "id": "b290c2c4-99f7-5096-8cd1-9a777e47526c",
+  "name": "Incident",
+  "description": "Production incidents and their follow-up",
+  "icon": "siren",
+  "standard": false,
+  "kinds": [],
+  "new_kind": "note",
+  "explicit": true,
+  "default_view": "table",
+  "columns": [
+    {
+      "id": "a10ae224-3f98-5027-897b-b74446bf4365",
+      "name": "Severity",
+      "kind": "select",
+      "options": {
+        "choices": [
+          {
+            "id": "sev1",
+            "name": "SEV1",
+            "color": "red"
+          },
+          {
+            "id": "sev2",
+            "name": "SEV2",
+            "color": "orange"
+          },
+          {
+            "id": "sev3",
+            "name": "SEV3"
+          }
+        ]
+      },
+      "position": 0,
+      "base": false,
+      "readonly": false
+    },
+    {
+      "id": "41fcaedf-9035-5ad2-aece-7e7e0bc21d7e",
+      "name": "Status",
+      "kind": "status",
+      "options": {
+        "choices": [
+          {
+            "id": "open",
+            "name": "Open",
+            "group": "todo"
+          },
+          {
+            "id": "mitigated",
+            "name": "Mitigated",
+            "group": "doing"
+          },
+          {
+            "id": "resolved",
+            "name": "Resolved",
+            "group": "done"
+          }
+        ],
+        "default": "open",
+        "transitions": {
+          "resolved": []
+        }
+      },
+      "position": 1,
+      "base": false,
+      "readonly": false
+    },
+    {
+      "id": "15212734-98e7-5fb7-870b-b4aac36016dc",
+      "name": "Impact window",
+      "kind": "date",
+      "options": {},
+      "position": 2,
+      "base": false,
+      "readonly": false
+    },
+    {
+      "id": "7d14babf-6dda-5754-9db1-efef0f1510b3",
+      "name": "Runbook",
+      "kind": "url",
+      "options": {},
+      "position": 3,
+      "base": false,
+      "readonly": false
+    }
+  ]
+}

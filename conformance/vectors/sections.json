@@ -1,0 +1,365 @@
+{
+  "version": "0.1.0",
+  "vectors": [
+    {
+      "name": "empty",
+      "input": "",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "name": "no-heading",
+      "input": "A document without headings\nsecond line\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "A document without headings\nsecond line\n",
+          "sha256": "7b82499f40c4f92665343fc168022c632a6f975446cd5a4d3ddbc61d9c240fc9"
+        }
+      ]
+    },
+    {
+      "name": "preamble-and-repeats",
+      "input": "Preamble\n# Purpose\nText\n## Detail\n- item\n# Purpose\nAgain\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "Preamble\n",
+          "sha256": "e187c2e47e1be4263099d20219c9d9264c42e0b161f820928ff19118d66ddc0e"
+        },
+        {
+          "id": "fe9ae0027d220fb8",
+          "title": "Purpose",
+          "text": "# Purpose\nText\n",
+          "sha256": "1c40d9ff0b2616a6603c10d399f593a48ebd9cfd7e0487a076a8bb1b9839c693"
+        },
+        {
+          "id": "bdf9651b58e23620",
+          "title": "Detail",
+          "text": "## Detail\n- item\n",
+          "sha256": "71cc03cc40b79cc7f4a99b6a6264fe1f970942e20f77fbb6add08b46fc8929be"
+        },
+        {
+          "id": "f7ff9f6d82d9b89a",
+          "title": "Purpose",
+          "text": "# Purpose\nAgain\n",
+          "sha256": "55d61d227d938194e6413f247ae05962ebe6b6785af49cb478237a2134f408ff"
+        }
+      ]
+    },
+    {
+      "name": "indent-up-to-three",
+      "input": " # One\n  ## Two\n   ### Three\n    # Code\n\t# Tab\n",
+      "sections": [
+        {
+          "id": "e3856da5cde48f01",
+          "title": "One",
+          "text": " # One\n",
+          "sha256": "880904ed7ea5a2f8fdcf0fe1653a1e0cff88641964524025e88f8a4ddeec4454"
+        },
+        {
+          "id": "9c78ad9428629af2",
+          "title": "Two",
+          "text": "  ## Two\n",
+          "sha256": "f1b6a94ac026d29d33cf9da8c5250eb4253cf91749aa6b64755f3bae8cb2f683"
+        },
+        {
+          "id": "36bca0ed0f4080f2",
+          "title": "Three",
+          "text": "   ### Three\n    # Code\n\t# Tab\n",
+          "sha256": "ba2893ae5e87dd3f02fd858b539be2aaaeb8a541af1c93914c04d587e0797a4c"
+        }
+      ]
+    },
+    {
+      "name": "not-headings",
+      "input": "#No space\n####### Seven\n# Real\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "#No space\n####### Seven\n",
+          "sha256": "076c7221670d50a2b3a53ad90c247164ff54dde15d97ef4023795be7946ea3c8"
+        },
+        {
+          "id": "5bbb9aa84675aecb",
+          "title": "Real",
+          "text": "# Real\n",
+          "sha256": "3eec3ac254b095669f1f3bce30acf0686011d617c19a447b805e7e79250265eb"
+        }
+      ]
+    },
+    {
+      "name": "closing-hashes",
+      "input": "## Goal ##\nText\n# C#\n# End #  \n# a#b ###\n",
+      "sections": [
+        {
+          "id": "3781ccb23b1baf33",
+          "title": "Goal",
+          "text": "## Goal ##\nText\n",
+          "sha256": "70a0e22963c9a043238841b3a8923e13412490a9e2a062a1af698e9bf4589b19"
+        },
+        {
+          "id": "f6c68a0f212c2a50",
+          "title": "C#",
+          "text": "# C#\n",
+          "sha256": "5ac9d8db3cb277bc8f39e71f63018751196e39369ac09160b2c9a5a084ca11dc"
+        },
+        {
+          "id": "a295a8cc6ea735dc",
+          "title": "End",
+          "text": "# End #  \n",
+          "sha256": "8d392ab22595d8a97e2cd4ac0095c03a920ca1e73f89dd91891b7e451aeed295"
+        },
+        {
+          "id": "5459180bc65772f8",
+          "title": "a#b",
+          "text": "# a#b ###\n",
+          "sha256": "a13ebaaa4ab4603575da6e90666ce9e4e081c7dd901c5eb96e61d117c0e014fe"
+        }
+      ]
+    },
+    {
+      "name": "setext-ignored",
+      "input": "Title\n===\nBody\nParagraph\n---\n# Real title\nEnd\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "Title\n===\nBody\nParagraph\n---\n",
+          "sha256": "ddaecab5d5002f0b48052d9164ecd8c546d8624a1e74d22c9bd0226507ae804b"
+        },
+        {
+          "id": "81347eaa8772f888",
+          "title": "Real title",
+          "text": "# Real title\nEnd\n",
+          "sha256": "01cd7aab68cf42e78b76cedb5426132742ca3f44916dc0a70a407f2d89ba023d"
+        }
+      ]
+    },
+    {
+      "name": "front-matter",
+      "input": "---\ntitle: Doc\n#key note\ntags:\n  - a\n---\n# Body title\nText\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "---\ntitle: Doc\n#key note\ntags:\n  - a\n---\n",
+          "sha256": "4384fb07bce897c82f4a91f845e29d1fef14fcab7d4b3f6cefc4a86bc28d5638"
+        },
+        {
+          "id": "6d1b00b6725c76a9",
+          "title": "Body title",
+          "text": "# Body title\nText\n",
+          "sha256": "4de132bbe2dd83cb5d82c7e19e1d1718584e0ab405fd76726688375f7ed9f945"
+        }
+      ]
+    },
+    {
+      "name": "front-matter-crlf",
+      "input": "---\r\na: 1\r\n#c\r\n...\r\n# Title\r\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "---\r\na: 1\r\n#c\r\n...\r\n",
+          "sha256": "f66053537a515b681edeb162705e037872bbe242b1576d9a0f2a4ad11bcce555"
+        },
+        {
+          "id": "e15ed25f2d33556c",
+          "title": "Title",
+          "text": "# Title\r\n",
+          "sha256": "e50e8abebf6778cc63e1e311018559c6173016d5af95d402774733873ab9af8d"
+        }
+      ]
+    },
+    {
+      "name": "rule-not-front-matter",
+      "input": "---\n# Minutes\nDate: 2026-01-01\nPlace: office\n---\n# Agenda\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "---\n",
+          "sha256": "f52d711103d50a437830c6fbcd04fb4bab49a0f82f6d26d1c791c6e8488dd090"
+        },
+        {
+          "id": "014b4ade9e3150db",
+          "title": "Minutes",
+          "text": "# Minutes\nDate: 2026-01-01\nPlace: office\n---\n",
+          "sha256": "67dce4834827b484ad3b596742376f291a5283ba455eae9b73da598b362331c8"
+        },
+        {
+          "id": "7077905371c34a6b",
+          "title": "Agenda",
+          "text": "# Agenda\n",
+          "sha256": "4d67a97d6cd93f9e369902eefc9830247d931aa72e2a8b58fda7f073ed6194fb"
+        }
+      ]
+    },
+    {
+      "name": "unclosed-fence",
+      "input": "# Example\n```python\n# comment\n# two\nbody\n",
+      "sections": [
+        {
+          "id": "c1d48955e60e9da4",
+          "title": "Example",
+          "text": "# Example\n```python\n# comment\n# two\nbody\n",
+          "sha256": "980969fd98a4b871f7d1b296a3702f8f22000f626701704ce015908472e759c6"
+        }
+      ]
+    },
+    {
+      "name": "tilde-fence",
+      "input": "# Example\n~~~\n```\n# comment\n~~~\n# Two\n",
+      "sections": [
+        {
+          "id": "c1d48955e60e9da4",
+          "title": "Example",
+          "text": "# Example\n~~~\n```\n# comment\n~~~\n",
+          "sha256": "ff44fd5a6bb8e8ac353bc62c6d29973b85a14a3709857b632cddb17577029cb0"
+        },
+        {
+          "id": "9c78ad9428629af2",
+          "title": "Two",
+          "text": "# Two\n",
+          "sha256": "9bddb161f35580d46abd4d4391535309621452d89daf8d9ed939ec642d1ee9df"
+        }
+      ]
+    },
+    {
+      "name": "inline-code-line",
+      "input": "# Example\n```code```\n# Two\nbody\n",
+      "sections": [
+        {
+          "id": "c1d48955e60e9da4",
+          "title": "Example",
+          "text": "# Example\n```code```\n",
+          "sha256": "0e128fe2e96099e0d0922c9e11d1e4df37fc15df8579d61672ea104818a7badb"
+        },
+        {
+          "id": "9c78ad9428629af2",
+          "title": "Two",
+          "text": "# Two\nbody\n",
+          "sha256": "7e8c28c1253e6b4b331482df03a5f991ba5a7169d366e648b85b6ec6ec2c14b5"
+        }
+      ]
+    },
+    {
+      "name": "line-endings",
+      "input": "# One\r\nbody\r\n## Two ##\r\nend\r# Three\r",
+      "sections": [
+        {
+          "id": "e3856da5cde48f01",
+          "title": "One",
+          "text": "# One\r\nbody\r\n",
+          "sha256": "281689d41edf86c01cac5581d527b9e4804ee95c18e20efb5d7e849cf3dcbe14"
+        },
+        {
+          "id": "52002adb5338ffff",
+          "title": "Two",
+          "text": "## Two ##\r\nend\r",
+          "sha256": "8a16e793bf8b44db9a556b969a470129d9ebfd959e87d828269d6715c3ec84f0"
+        },
+        {
+          "id": "36bca0ed0f4080f2",
+          "title": "Three",
+          "text": "# Three\r",
+          "sha256": "3d244c913c02b869e7991ae4e7e6baa9561361d7c3dd59b5456160181eb07dd1"
+        }
+      ]
+    },
+    {
+      "name": "other-separators",
+      "input": "# One\nbody\f# Two\u000b# Three# Four # Five\n",
+      "sections": [
+        {
+          "id": "e3856da5cde48f01",
+          "title": "One",
+          "text": "# One\nbody\f# Two\u000b# Three# Four # Five\n",
+          "sha256": "d4355440df91f5f9205689b19859630831f184284e1c3fd1b65299a64966c4f0"
+        }
+      ]
+    },
+    {
+      "name": "korean",
+      "input": "머리말\n# 목적\n본문\n## 세부\n- 항목\n# 목적\n다시\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "머리말\n",
+          "sha256": "2a4905be05ee553f4735d90bc3efc623aa1c342fab1bf75ebe16f5aed0e0d325"
+        },
+        {
+          "id": "90d87c6217412521",
+          "title": "목적",
+          "text": "# 목적\n본문\n",
+          "sha256": "44cb6700573ea62941b4576adb0f38eefba5b484d151ec80c665d49611d57507"
+        },
+        {
+          "id": "273419f4baea6180",
+          "title": "세부",
+          "text": "## 세부\n- 항목\n",
+          "sha256": "a44f801d27d773e82bbbbc779be97558bbebfe0a584e607457c37f331c793482"
+        },
+        {
+          "id": "8ff9b6c96b3c8446",
+          "title": "목적",
+          "text": "# 목적\n다시\n",
+          "sha256": "9c01d17c4232ebea9031808886c1113fff9b8fe7d3340a6ed138787307c988f9"
+        }
+      ]
+    },
+    {
+      "name": "levels",
+      "input": "Preamble\n# One\n  ### Three ###\n###### Six\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "Preamble\n",
+          "sha256": "e187c2e47e1be4263099d20219c9d9264c42e0b161f820928ff19118d66ddc0e"
+        },
+        {
+          "id": "e3856da5cde48f01",
+          "title": "One",
+          "text": "# One\n",
+          "sha256": "5add2e4a6306bb1bb52c92869f20756aa1c9d514dbb2c9c4d2a94bc8378b0eb5"
+        },
+        {
+          "id": "1ffca50e76e7029c",
+          "title": "Three",
+          "text": "  ### Three ###\n",
+          "sha256": "972e03a60db935c3bbf9dc8d6c1c70c51d885c488afcd7abd39a7103adca0a88"
+        },
+        {
+          "id": "93e5c0390b52de56",
+          "title": "Six",
+          "text": "###### Six\n",
+          "sha256": "984e02efa47d7c327004a9526bfdc2c34f282310cf65ca8feb1b0325073f416e"
+        }
+      ]
+    },
+    {
+      "name": "no-trailing-newline",
+      "input": "# Only\nlast line",
+      "sections": [
+        {
+          "id": "a3d6f9a2bdfd0899",
+          "title": "Only",
+          "text": "# Only\nlast line",
+          "sha256": "dc24bd3cce052a3dd436ceed40739ec87e21d92c085dc5d69ee3f62b6c02cb64"
+        }
+      ]
+    }
+  ]
+}

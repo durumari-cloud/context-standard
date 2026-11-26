@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:durumari-context-standard:0.1:schema:properties",
+  "title": "Document properties",
+  "description": "A document's type and column values, not part of revision history (spec chapter 4.4). Values are checked against the type's columns by the conformance suite. $defs.event is a property event (spec chapter 4.5).",
+  "type": "object",
+  "required": ["type_id", "values"],
+  "additionalProperties": false,
+  "properties": {
+    "type_id": {
+      "description": "A standard type id, 'unsorted' or a custom type id.",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "values": {
+      "type": "object",
+      "maxProperties": 100,
+      "propertyNames": { "minLength": 1, "maxLength": 64 }
+    }
+  },
+  "$defs": {
+    "event": {
+      "type": "object",
+      "required": ["context_id", "column_id", "column_name", "column_kind", "before", "after", "actor_kind", "via", "cause", "at"],
+      "additionalProperties": false,
+      "properties": {
+        "context_id": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/id" },
+        "column_id": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "column_name": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "column_kind": { "$ref": "urn:durumari-context-standard:0.1:schema:document-type#/$defs/columnKind" },
+        "before": true,
+        "after": true,
+        "labels": {
+          "type": ["object", "null"],
+          "additionalProperties": { "type": "string" }
+        },
+        "actor_id": { "type": ["string", "null"], "maxLength": 128 },
+        "actor_label": { "type": ["string", "null"], "maxLength": 120 },
+        "actor_kind": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/actorKind" },
+        "via": { "enum": ["web", "mcp", "rest", "cli", "webhook", "import"] },
+        "cause": {
+          "type": "object",
+          "required": ["kind"],
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "enum": ["edit", "default", "unique_id", "column_added", "column_deleted", "column_retyped", "choice_deleted", "sprint_close"]
+            },
+            "ref": { "type": "string", "maxLength": 128 }
+          }
+        },
+        "at": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/timestamp" }
+      }
+    }
+  }
+}

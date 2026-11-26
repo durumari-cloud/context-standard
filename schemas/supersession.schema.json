@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:durumari-context-standard:0.1:schema:supersession",
+  "title": "Supersession reference",
+  "description": "A revision's statement that it replaces another revision, wholly or in part (spec chapter 6). $defs holds the derived effect, anchor and efficacy shapes.",
+  "type": "object",
+  "required": ["context_id", "revision"],
+  "additionalProperties": false,
+  "properties": {
+    "context_id": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/id" },
+    "revision": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/revisionNumber" },
+    "scopes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/scope" },
+      "minItems": 1,
+      "maxItems": 32
+    }
+  },
+  "$defs": {
+    "scope": {
+      "type": "object",
+      "required": ["section_id", "before_sha256"],
+      "additionalProperties": false,
+      "properties": {
+        "section_id": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/sectionId" },
+        "before_sha256": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/sha256" },
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer", "minimum": 1 }
+      },
+      "dependentRequired": { "start": ["end"], "end": ["start"] }
+    },
+    "anchor": {
+      "type": "object",
+      "required": ["section_id", "start", "end", "whole"],
+      "additionalProperties": false,
+      "properties": {
+        "section_id": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/sectionId" },
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer", "minimum": 1 },
+        "whole": { "type": "boolean" }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "required": ["id", "source_id", "source_revision", "target_revision", "scopes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^[0-9a-f]{24}$" },
+        "source_id": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/id" },
+        "source_revision": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/revisionNumber" },
+        "target_revision": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/revisionNumber" },
+        "scopes": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "array", "items": { "$ref": "#/$defs/anchor" }, "minItems": 1 }
+          ]
+        },
+        "unresolved": { "type": "boolean" },
+        "review_sections": {
+          "type": "array",
+          "items": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/sectionId" }
+        }
+      }
+    },
+    "efficacy": {
+      "type": "object",
+      "required": ["current_revision", "current_state", "status", "decision_count", "generation"],
+      "additionalProperties": false,
+      "properties": {
+        "current_revision": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/revisionNumber" },
+        "current_state": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/state" },
+        "status": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/effectiveState" },
+        "decision_count": { "type": "integer", "minimum": 0 },
+        "generation": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

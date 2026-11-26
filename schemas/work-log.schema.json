@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:durumari-context-standard:0.1:schema:work-log",
+  "title": "Work log",
+  "description": "A dedicated work record with its append-only events (spec chapter 8.1). $defs.logLine is the Context-form log line (spec chapter 8.3).",
+  "type": "object",
+  "required": [
+    "id", "title", "status", "summary", "completed", "remaining", "next_action",
+    "constraints", "waiting_reason", "evidence", "revision", "created_at", "updated_at", "events"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "standard": { "const": "durumari-context/0.1" },
+    "id": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/id" },
+    "space_id": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "title": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/title" },
+    "status": { "enum": ["unknown", "in_progress", "waiting", "complete", "stopped"] },
+    "summary": { "$ref": "#/$defs/shortText" },
+    "completed": { "$ref": "#/$defs/shortText" },
+    "remaining": { "$ref": "#/$defs/shortText" },
+    "next_action": { "$ref": "#/$defs/shortText" },
+    "constraints": { "$ref": "#/$defs/shortText" },
+    "waiting_reason": { "$ref": "#/$defs/shortText" },
+    "assignee_id": { "type": ["string", "null"], "maxLength": 36 },
+    "agent": { "type": ["string", "null"], "maxLength": 100 },
+    "session_ref": { "type": ["string", "null"], "maxLength": 256 },
+    "evidence": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/shortText" },
+      "maxItems": 20
+    },
+    "source_context_id": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/id" }
+      ]
+    },
+    "source_revision": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/revisionNumber" }
+      ]
+    },
+    "revision": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/revisionNumber" },
+    "created_at": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/timestamp" },
+    "updated_at": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/timestamp" },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/event" },
+      "minItems": 1
+    }
+  },
+  "$defs": {
+    "shortText": { "type": "string", "maxLength": 2000 },
+    "event": {
+      "type": "object",
+      "required": ["revision", "actor_kind", "kind", "text", "created_at"],
+      "additionalProperties": false,
+      "properties": {
+        "revision": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/revisionNumber" },
+        "actor_kind": { "enum": ["human", "agent"] },
+        "agent": { "type": ["string", "null"], "maxLength": 100 },
+        "kind": { "enum": ["reported", "verified", "human_confirmed"] },
+        "text": { "type": "string", "minLength": 1, "maxLength": 4000 },
+        "created_at": { "$ref": "urn:durumari-context-standard:0.1:schema:common#/$defs/timestamp" }
+      },
+      "if": { "properties": { "actor_kind": { "const": "agent" } } },
+      "then": { "properties": { "kind": { "const": "reported" } } }
+    },
+    "logLine": {
+      "type": "string",
+      "pattern": "^agent-[0-9]+\\([^()\\r\\n]+\\) [0-2][0-9]:[0-5][0-9]( [^\\s@]+@[0-9a-f]{7,40})?: [^\\r\\n]+? \u00b7 [^\\r\\n]+$"
+    }
+  }
+}

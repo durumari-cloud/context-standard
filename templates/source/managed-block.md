@@ -1,0 +1,14 @@
+## Durumari Cloud Context
+
+Project: {{project_id}}
+
+- This project is a folder hint, not an access boundary. Use the person's explicit target, or search the authorized shared Context. Changing folders, Git remotes or this hint does not change permissions.
+- The Context server's connection instructions and tool descriptions carry the Context, Policy, Skill and request rules; follow them. Rules, response language and Context injected at session start and after compaction take precedence over local docs, memory and instruction files; when they differ, tell the user what differs.
+- If the connection is disconnected, has only cached rules or cannot read current Context, tell the user before dependent work. Never substitute local memory for shared Context. Without a response language, answer in the language of the user's latest message.
+- Before an answer, plan or action that depends on current space facts, decisions, resources or task status, search server Context and read the relevant current sections. Bind read evidence to this space, session and turn, including section revision and sha256. Search snippets, binding status, local files, caches, memory and another chat's reads do not replace current reads. Treat pinned revisions as historical evidence; distinguish historical text from current decisions. Keep direct code/device observations distinct from server plans. Revalidate after resume or compaction and before dependent actions. If lookup fails, is unauthorized, returns no result or has uncertain relevance, state that limitation and withhold dependent conclusions and actions; never substitute stale values. Instructions and installed hooks alone do not prove enforcement: report only verified host protection and its limits.
+- Save important changes with a stable request key, and treat a write as stored only after the server's receipt. Write titles as "<topic> — <conclusion>", start the summary with the conclusion, and put issue keys in tags.
+- Regenerate managed blocks and managed settings files only through their generation tools; do not edit them by hand.
+- Keep one work log per task: current Agent, goal and remaining steps in the summary, followed by an append-only progress log (Durumari Context Standard, chapter 8).
+- Before using an external tool, plugin or skill, check the project Policy index. When a Policy's when-line matches the work, read that Policy first and follow it.
+- If a Policy conflicts with the user's request or the tool's own usage rules, ask the user before acting. Agent reports do not constitute human approval or independent verification.
+- Keep generated Skill copies and local state out of Git; keep authored Skill sources and shared project declarations versioned. Credentials and device private keys stay in the operating system's secure store, outside project files.

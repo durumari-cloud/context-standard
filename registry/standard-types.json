@@ -1,0 +1,918 @@
+{
+  "version": "0.1.0",
+  "automatic_columns": [
+    {
+      "id": "title",
+      "name": {
+        "en": "Title",
+        "ko": "제목"
+      },
+      "kind": "text",
+      "options": {},
+      "base": true,
+      "readonly": false
+    },
+    {
+      "id": "tags",
+      "name": {
+        "en": "Tags",
+        "ko": "태그"
+      },
+      "kind": "multi_select",
+      "options": {},
+      "base": true,
+      "readonly": true
+    },
+    {
+      "id": "created_by",
+      "name": {
+        "en": "Created by",
+        "ko": "만든 사람"
+      },
+      "kind": "created_by",
+      "options": {},
+      "base": true,
+      "readonly": true
+    },
+    {
+      "id": "created_at",
+      "name": {
+        "en": "Created at",
+        "ko": "만든 시각"
+      },
+      "kind": "created_at",
+      "options": {},
+      "base": true,
+      "readonly": true
+    },
+    {
+      "id": "updated_by",
+      "name": {
+        "en": "Updated by",
+        "ko": "고친 사람"
+      },
+      "kind": "updated_by",
+      "options": {},
+      "base": true,
+      "readonly": true
+    },
+    {
+      "id": "updated_at",
+      "name": {
+        "en": "Updated at",
+        "ko": "고친 시각"
+      },
+      "kind": "updated_at",
+      "options": {},
+      "base": true,
+      "readonly": true
+    }
+  ],
+  "column_kinds": [
+    "text",
+    "number",
+    "date",
+    "select",
+    "multi_select",
+    "status",
+    "checkbox",
+    "person",
+    "url",
+    "email",
+    "phone",
+    "file",
+    "relation",
+    "unique_id",
+    "created_by",
+    "created_at",
+    "updated_by",
+    "updated_at"
+  ],
+  "status_groups": [
+    "todo",
+    "doing",
+    "done"
+  ],
+  "types": [
+    {
+      "id": "work-log",
+      "name": {
+        "en": "Work log",
+        "ko": "작업 기록"
+      },
+      "standard": true,
+      "kinds": [
+        "action",
+        "plan"
+      ],
+      "new_kind": "action",
+      "explicit": false,
+      "default_view": "dedicated",
+      "default_enabled": true,
+      "columns": [
+        {
+          "id": "work-log.status",
+          "name": {
+            "en": "Status",
+            "ko": "상태"
+          },
+          "kind": "status",
+          "options": {
+            "choices": [
+              {
+                "id": "in_progress",
+                "name": {
+                  "en": "In progress",
+                  "ko": "진행 중"
+                },
+                "group": "doing"
+              },
+              {
+                "id": "waiting",
+                "name": {
+                  "en": "Waiting",
+                  "ko": "대기"
+                },
+                "group": "todo"
+              },
+              {
+                "id": "complete",
+                "name": {
+                  "en": "Done",
+                  "ko": "완료"
+                },
+                "group": "done"
+              },
+              {
+                "id": "stopped",
+                "name": {
+                  "en": "Stopped",
+                  "ko": "중단"
+                },
+                "group": "done"
+              },
+              {
+                "id": "unknown",
+                "name": {
+                  "en": "Unknown",
+                  "ko": "모름"
+                },
+                "group": "todo"
+              }
+            ]
+          },
+          "base": true,
+          "readonly": true
+        },
+        {
+          "id": "work-log.agent",
+          "name": {
+            "en": "Agent",
+            "ko": "담당 Agent"
+          },
+          "kind": "text",
+          "options": {},
+          "base": true,
+          "readonly": true
+        },
+        {
+          "id": "work-log.remaining",
+          "name": {
+            "en": "Remaining",
+            "ko": "남은 일"
+          },
+          "kind": "text",
+          "options": {},
+          "base": true,
+          "readonly": true
+        }
+      ]
+    },
+    {
+      "id": "spec",
+      "name": {
+        "en": "Spec",
+        "ko": "명세"
+      },
+      "standard": true,
+      "kinds": [
+        "spec",
+        "architecture"
+      ],
+      "new_kind": "spec",
+      "explicit": false,
+      "default_view": "table",
+      "default_enabled": true,
+      "columns": [
+        {
+          "id": "spec.status",
+          "name": {
+            "en": "Status",
+            "ko": "상태"
+          },
+          "kind": "status",
+          "options": {
+            "choices": [
+              {
+                "id": "s1",
+                "name": {
+                  "en": "Draft",
+                  "ko": "초안"
+                },
+                "group": "todo"
+              },
+              {
+                "id": "s2",
+                "name": {
+                  "en": "In review",
+                  "ko": "검토 중"
+                },
+                "group": "doing"
+              },
+              {
+                "id": "s3",
+                "name": {
+                  "en": "Final",
+                  "ko": "확정"
+                },
+                "group": "done"
+              },
+              {
+                "id": "s4",
+                "name": {
+                  "en": "Discarded",
+                  "ko": "폐기"
+                },
+                "group": "done"
+              }
+            ],
+            "default": "s1"
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "spec.owner",
+          "name": {
+            "en": "Owner",
+            "ko": "담당자"
+          },
+          "kind": "person",
+          "options": {},
+          "base": true,
+          "readonly": false
+        }
+      ]
+    },
+    {
+      "id": "proposal",
+      "name": {
+        "en": "Proposal",
+        "ko": "제안"
+      },
+      "standard": true,
+      "kinds": [
+        "idea",
+        "request"
+      ],
+      "new_kind": "idea",
+      "explicit": false,
+      "default_view": "table",
+      "default_enabled": true,
+      "columns": [
+        {
+          "id": "proposal.status",
+          "name": {
+            "en": "Status",
+            "ko": "상태"
+          },
+          "kind": "status",
+          "options": {
+            "choices": [
+              {
+                "id": "p1",
+                "name": {
+                  "en": "Proposed",
+                  "ko": "제안"
+                },
+                "group": "todo"
+              },
+              {
+                "id": "p2",
+                "name": {
+                  "en": "In review",
+                  "ko": "검토 중"
+                },
+                "group": "doing"
+              },
+              {
+                "id": "p3",
+                "name": {
+                  "en": "Adopted",
+                  "ko": "채택"
+                },
+                "group": "done"
+              },
+              {
+                "id": "p4",
+                "name": {
+                  "en": "Rejected",
+                  "ko": "기각"
+                },
+                "group": "done"
+              }
+            ],
+            "default": "p1"
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "proposal.proposer",
+          "name": {
+            "en": "Proposer",
+            "ko": "제안자"
+          },
+          "kind": "person",
+          "options": {},
+          "base": true,
+          "readonly": false
+        }
+      ]
+    },
+    {
+      "id": "decision",
+      "name": {
+        "en": "Decision",
+        "ko": "결정"
+      },
+      "standard": true,
+      "kinds": [
+        "decision"
+      ],
+      "new_kind": "decision",
+      "explicit": false,
+      "default_view": "dedicated",
+      "default_enabled": true,
+      "columns": [
+        {
+          "id": "decision.effect",
+          "name": {
+            "en": "Effect",
+            "ko": "효력"
+          },
+          "kind": "status",
+          "options": {
+            "choices": [
+              {
+                "id": "valid",
+                "name": {
+                  "en": "Valid",
+                  "ko": "현행"
+                },
+                "group": "done"
+              },
+              {
+                "id": "needs_review",
+                "name": {
+                  "en": "Needs review",
+                  "ko": "검토 필요"
+                },
+                "group": "doing"
+              },
+              {
+                "id": "superseded",
+                "name": {
+                  "en": "Superseded",
+                  "ko": "대체됨"
+                },
+                "group": "todo"
+              }
+            ]
+          },
+          "base": true,
+          "readonly": true
+        },
+        {
+          "id": "decision.date",
+          "name": {
+            "en": "Decision date",
+            "ko": "결정일"
+          },
+          "kind": "date",
+          "options": {},
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "decision.basis",
+          "name": {
+            "en": "Basis",
+            "ko": "근거"
+          },
+          "kind": "relation",
+          "options": {},
+          "base": true,
+          "readonly": false
+        }
+      ]
+    },
+    {
+      "id": "issue",
+      "name": {
+        "en": "Issue",
+        "ko": "이슈"
+      },
+      "standard": true,
+      "kinds": [
+        "issue"
+      ],
+      "new_kind": "issue",
+      "explicit": false,
+      "default_view": "table",
+      "default_enabled": true,
+      "columns": [
+        {
+          "id": "issue.status",
+          "name": {
+            "en": "Status",
+            "ko": "상태"
+          },
+          "kind": "status",
+          "options": {
+            "choices": [
+              {
+                "id": "i1",
+                "name": {
+                  "en": "To do",
+                  "ko": "할 일"
+                },
+                "group": "todo"
+              },
+              {
+                "id": "i2",
+                "name": {
+                  "en": "In progress",
+                  "ko": "진행 중"
+                },
+                "group": "doing"
+              },
+              {
+                "id": "i5",
+                "name": {
+                  "en": "Review",
+                  "ko": "검토"
+                },
+                "group": "doing"
+              },
+              {
+                "id": "i3",
+                "name": {
+                  "en": "Done",
+                  "ko": "완료"
+                },
+                "group": "done"
+              },
+              {
+                "id": "i4",
+                "name": {
+                  "en": "Closed",
+                  "ko": "닫힘"
+                },
+                "group": "done"
+              }
+            ],
+            "default": "i1",
+            "require_reason": [
+              "i4"
+            ],
+            "reason_column": "issue.close_reason"
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "issue.severity",
+          "name": {
+            "en": "Priority",
+            "ko": "우선순위"
+          },
+          "kind": "select",
+          "options": {
+            "choices": [
+              {
+                "id": "v1",
+                "name": {
+                  "en": "Low",
+                  "ko": "낮음"
+                }
+              },
+              {
+                "id": "v2",
+                "name": {
+                  "en": "Normal",
+                  "ko": "보통"
+                }
+              },
+              {
+                "id": "v3",
+                "name": {
+                  "en": "High",
+                  "ko": "높음"
+                }
+              },
+              {
+                "id": "v4",
+                "name": {
+                  "en": "Urgent",
+                  "ko": "긴급"
+                }
+              }
+            ]
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "issue.assignee",
+          "name": {
+            "en": "Owner",
+            "ko": "담당자"
+          },
+          "kind": "person",
+          "options": {},
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "issue.key",
+          "name": {
+            "en": "Key",
+            "ko": "키"
+          },
+          "kind": "unique_id",
+          "options": {
+            "numbering": "space",
+            "prefix": "",
+            "next": 1
+          },
+          "base": true,
+          "readonly": true
+        },
+        {
+          "id": "issue.type",
+          "name": {
+            "en": "Type",
+            "ko": "유형"
+          },
+          "kind": "select",
+          "options": {
+            "choices": [
+              {
+                "id": "t1",
+                "name": {
+                  "en": "Epic",
+                  "ko": "에픽"
+                }
+              },
+              {
+                "id": "t2",
+                "name": {
+                  "en": "Story",
+                  "ko": "스토리"
+                }
+              },
+              {
+                "id": "t3",
+                "name": {
+                  "en": "Task",
+                  "ko": "작업"
+                }
+              },
+              {
+                "id": "t4",
+                "name": {
+                  "en": "Bug",
+                  "ko": "버그"
+                }
+              }
+            ]
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "issue.close_reason",
+          "name": {
+            "en": "Close reason",
+            "ko": "닫힘 사유"
+          },
+          "kind": "select",
+          "options": {
+            "choices": [
+              {
+                "id": "c1",
+                "name": {
+                  "en": "Duplicate",
+                  "ko": "중복"
+                }
+              },
+              {
+                "id": "c2",
+                "name": {
+                  "en": "Replaced",
+                  "ko": "대체"
+                }
+              },
+              {
+                "id": "c3",
+                "name": {
+                  "en": "Cancelled",
+                  "ko": "취소"
+                }
+              }
+            ]
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "issue.parent",
+          "name": {
+            "en": "Parent",
+            "ko": "상위"
+          },
+          "kind": "relation",
+          "options": {
+            "max": 1,
+            "parent": true
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "issue.sprint",
+          "name": {
+            "en": "Sprint",
+            "ko": "스프린트"
+          },
+          "kind": "relation",
+          "options": {
+            "max": 1,
+            "target_type": "sprint"
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "issue.due",
+          "name": {
+            "en": "Due date",
+            "ko": "마감일"
+          },
+          "kind": "date",
+          "options": {},
+          "base": true,
+          "readonly": false
+        }
+      ]
+    },
+    {
+      "id": "sprint",
+      "name": {
+        "en": "Sprint",
+        "ko": "스프린트"
+      },
+      "standard": true,
+      "kinds": [],
+      "new_kind": "plan",
+      "explicit": true,
+      "default_view": "table",
+      "default_enabled": false,
+      "columns": [
+        {
+          "id": "sprint.period",
+          "name": {
+            "en": "Period",
+            "ko": "기간"
+          },
+          "kind": "date",
+          "options": {},
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "sprint.goal",
+          "name": {
+            "en": "Goal",
+            "ko": "목표"
+          },
+          "kind": "text",
+          "options": {},
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "sprint.status",
+          "name": {
+            "en": "Status",
+            "ko": "상태"
+          },
+          "kind": "status",
+          "options": {
+            "choices": [
+              {
+                "id": "sp1",
+                "name": {
+                  "en": "Planned",
+                  "ko": "예정"
+                },
+                "group": "todo"
+              },
+              {
+                "id": "sp2",
+                "name": {
+                  "en": "Active",
+                  "ko": "진행"
+                },
+                "group": "doing"
+              },
+              {
+                "id": "sp3",
+                "name": {
+                  "en": "Closed",
+                  "ko": "종료"
+                },
+                "group": "done"
+              }
+            ],
+            "default": "sp1"
+          },
+          "base": true,
+          "readonly": false
+        }
+      ]
+    },
+    {
+      "id": "resource",
+      "name": {
+        "en": "Resource",
+        "ko": "자원"
+      },
+      "standard": true,
+      "kinds": [
+        "resource"
+      ],
+      "new_kind": "resource",
+      "explicit": false,
+      "default_view": "table",
+      "default_enabled": true,
+      "columns": [
+        {
+          "id": "resource.type",
+          "name": {
+            "en": "Resource type",
+            "ko": "자원 종류"
+          },
+          "kind": "select",
+          "options": {
+            "choices": [
+              {
+                "id": "r1",
+                "name": {
+                  "en": "Document",
+                  "ko": "문서"
+                }
+              },
+              {
+                "id": "r2",
+                "name": {
+                  "en": "Tool",
+                  "ko": "도구"
+                }
+              },
+              {
+                "id": "r3",
+                "name": {
+                  "en": "Repository",
+                  "ko": "저장소"
+                }
+              },
+              {
+                "id": "r4",
+                "name": {
+                  "en": "Data",
+                  "ko": "데이터"
+                }
+              },
+              {
+                "id": "r5",
+                "name": {
+                  "en": "Other",
+                  "ko": "기타"
+                }
+              }
+            ]
+          },
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "resource.link",
+          "name": {
+            "en": "Link",
+            "ko": "링크"
+          },
+          "kind": "url",
+          "options": {},
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "resource.owner",
+          "name": {
+            "en": "Maintainer",
+            "ko": "관리자"
+          },
+          "kind": "person",
+          "options": {},
+          "base": true,
+          "readonly": false
+        }
+      ]
+    },
+    {
+      "id": "report",
+      "name": {
+        "en": "Report",
+        "ko": "보고"
+      },
+      "standard": true,
+      "kinds": [
+        "report"
+      ],
+      "new_kind": "report",
+      "explicit": false,
+      "default_view": "table",
+      "default_enabled": true,
+      "columns": [
+        {
+          "id": "report.period",
+          "name": {
+            "en": "Report period",
+            "ko": "보고 기간"
+          },
+          "kind": "date",
+          "options": {},
+          "base": true,
+          "readonly": false
+        },
+        {
+          "id": "report.reporter",
+          "name": {
+            "en": "Reporter",
+            "ko": "보고자"
+          },
+          "kind": "person",
+          "options": {},
+          "base": true,
+          "readonly": false
+        }
+      ]
+    },
+    {
+      "id": "policy",
+      "name": {
+        "en": "Policy",
+        "ko": "Policy"
+      },
+      "standard": true,
+      "kinds": [
+        "instruction"
+      ],
+      "new_kind": "instruction",
+      "explicit": false,
+      "default_view": "dedicated",
+      "default_enabled": true,
+      "columns": []
+    },
+    {
+      "id": "unsorted",
+      "name": {
+        "en": "Unsorted",
+        "ko": "분류 없음"
+      },
+      "standard": false,
+      "system": true,
+      "kinds": [
+        "note",
+        "glossary"
+      ],
+      "new_kind": "note",
+      "explicit": false,
+      "default_view": "table",
+      "default_enabled": true,
+      "columns": []
+    }
+  ]
+}

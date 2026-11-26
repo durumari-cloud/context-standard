@@ -1,0 +1,421 @@
+{
+  "version": "0.1.0",
+  "kinds": [
+    {
+      "kind": "request",
+      "label": {
+        "en": "Request",
+        "ko": "요청"
+      },
+      "question": {
+        "en": "Who asked for what, and why?",
+        "ko": "누가 무엇을 왜 요청했나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Original request",
+            "ko": "요청 원문"
+          },
+          {
+            "en": "Target and scope",
+            "ko": "대상과 범위"
+          },
+          {
+            "en": "Source",
+            "ko": "출처"
+          },
+          {
+            "en": "Open questions",
+            "ko": "미결 사항"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "idea",
+      "label": {
+        "en": "Idea",
+        "ko": "아이디어"
+      },
+      "question": {
+        "en": "What possibility is being considered?",
+        "ko": "어떤 가능성을 검토하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Proposal",
+            "ko": "제안"
+          },
+          {
+            "en": "Expected effect",
+            "ko": "기대 효과"
+          },
+          {
+            "en": "Alternatives and constraints",
+            "ko": "대안과 제약"
+          },
+          {
+            "en": "Points to review",
+            "ko": "검토할 점"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "spec",
+      "label": {
+        "en": "Spec",
+        "ko": "명세"
+      },
+      "question": {
+        "en": "What must be satisfied?",
+        "ko": "무엇을 만족해야 하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Purpose and scope",
+            "ko": "목적과 범위"
+          },
+          {
+            "en": "Requirements",
+            "ko": "요구사항"
+          },
+          {
+            "en": "Acceptance criteria",
+            "ko": "수용 기준"
+          },
+          {
+            "en": "Out of scope",
+            "ko": "제외 범위"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "architecture",
+      "label": {
+        "en": "Architecture",
+        "ko": "아키텍처"
+      },
+      "question": {
+        "en": "How is it structured and connected?",
+        "ko": "어떻게 구성하고 연결하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Structure and responsibilities",
+            "ko": "구조와 책임"
+          },
+          {
+            "en": "Data flow",
+            "ko": "데이터 흐름"
+          },
+          {
+            "en": "Integration boundaries",
+            "ko": "연동 경계"
+          },
+          {
+            "en": "Failure and recovery",
+            "ko": "실패와 복구"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "resource",
+      "label": {
+        "en": "Resource",
+        "ko": "자원"
+      },
+      "question": {
+        "en": "Who or what plays which role?",
+        "ko": "누가·무엇이 어떤 역할을 하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Resources and roles",
+            "ko": "자원과 역할"
+          },
+          {
+            "en": "Capabilities and use",
+            "ko": "능력과 용도"
+          },
+          {
+            "en": "Constraints and availability",
+            "ko": "제약과 가용성"
+          },
+          {
+            "en": "Sources and related material",
+            "ko": "출처와 관련 자료"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "decision",
+      "label": {
+        "en": "Decision",
+        "ko": "결정"
+      },
+      "question": {
+        "en": "Why was this direction chosen?",
+        "ko": "왜 이 방향을 선택했나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "What was chosen",
+            "ko": "선택한 내용"
+          },
+          {
+            "en": "Reasons and evidence",
+            "ko": "이유와 근거"
+          },
+          {
+            "en": "Alternatives considered",
+            "ko": "검토한 대안"
+          },
+          {
+            "en": "Impact and replacement",
+            "ko": "영향과 대체 관계"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "plan",
+      "label": {
+        "en": "Plan",
+        "ko": "계획"
+      },
+      "question": {
+        "en": "In what order will it proceed?",
+        "ko": "어떤 순서로 진행하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Goal",
+            "ko": "목표"
+          },
+          {
+            "en": "Steps and dependencies",
+            "ko": "단계와 의존성"
+          },
+          {
+            "en": "Resources needed",
+            "ko": "필요한 자원"
+          },
+          {
+            "en": "Verification plan",
+            "ko": "검증 계획"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "action",
+      "label": {
+        "en": "Action",
+        "ko": "할 일"
+      },
+      "question": {
+        "en": "What must be done?",
+        "ko": "무엇을 수행해야 하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Work to do",
+            "ko": "수행할 작업"
+          },
+          {
+            "en": "Done when",
+            "ko": "완료 조건"
+          },
+          {
+            "en": "Dependencies and constraints",
+            "ko": "의존성과 제약"
+          },
+          {
+            "en": "Owner, due date and evidence",
+            "ko": "담당·기한·관련 근거"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "issue",
+      "label": {
+        "en": "Issue",
+        "ko": "쟁점"
+      },
+      "question": {
+        "en": "What is unconfirmed or unresolved?",
+        "ko": "무엇이 미확인·미해결인가요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Problem or question",
+            "ko": "문제 또는 질문"
+          },
+          {
+            "en": "Observations and evidence",
+            "ko": "관측과 근거"
+          },
+          {
+            "en": "Impact and risk",
+            "ko": "영향과 위험"
+          },
+          {
+            "en": "Resolution conditions",
+            "ko": "해결·확인 조건"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "instruction",
+      "label": {
+        "en": "Instruction",
+        "ko": "작업 지침"
+      },
+      "question": {
+        "en": "Which rule or procedure applies?",
+        "ko": "어떤 규칙이나 절차를 적용하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Scope",
+            "ko": "적용 범위"
+          },
+          {
+            "en": "Rule or procedure",
+            "ko": "규칙 또는 절차"
+          },
+          {
+            "en": "Exceptions and stop conditions",
+            "ko": "예외와 중단 조건"
+          },
+          {
+            "en": "Source",
+            "ko": "출처"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "report",
+      "label": {
+        "en": "Report",
+        "ko": "결과 보고"
+      },
+      "question": {
+        "en": "What was actually done and observed?",
+        "ko": "실제로 무엇을 하고 관측했나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "What was done",
+            "ko": "수행 내용"
+          },
+          {
+            "en": "Results and evidence",
+            "ko": "결과와 증거"
+          },
+          {
+            "en": "Verification scope and limits",
+            "ko": "검증 범위와 한계"
+          },
+          {
+            "en": "Remaining work",
+            "ko": "남은 작업"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "glossary",
+      "label": {
+        "en": "Glossary",
+        "ko": "용어사전"
+      },
+      "question": {
+        "en": "What does this term mean here?",
+        "ko": "이 말을 어떤 의미로 사용하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Term and aliases",
+            "ko": "용어와 별칭"
+          },
+          {
+            "en": "Definition",
+            "ko": "정의"
+          },
+          {
+            "en": "Scope and examples",
+            "ko": "적용 범위와 예시"
+          },
+          {
+            "en": "Source and history",
+            "ko": "출처와 변경 이력"
+          }
+        ]
+      }
+    },
+    {
+      "kind": "note",
+      "label": {
+        "en": "Note",
+        "ko": "일반 기록"
+      },
+      "question": {
+        "en": "What background or knowledge is kept?",
+        "ko": "어떤 배경과 지식을 보존하나요?"
+      },
+      "template": {
+        "version": 1,
+        "sections": [
+          {
+            "en": "Background",
+            "ko": "배경"
+          },
+          {
+            "en": "Record",
+            "ko": "기록"
+          },
+          {
+            "en": "Sources and related material",
+            "ko": "출처와 관련 자료"
+          },
+          {
+            "en": "Points to check",
+            "ko": "확인할 점"
+          }
+        ]
+      }
+    }
+  ]
+}

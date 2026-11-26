@@ -1,0 +1,73 @@
+{
+  "standard": "durumari-context/0.1",
+  "id": "a5bcd418-a73a-5cc6-8f35-8c9b3f3d4ba9",
+  "space_id": "space-example",
+  "revision": 1,
+  "state": "active",
+  "effective_state": "active",
+  "efficacy": {
+    "current_revision": 1,
+    "current_state": "active",
+    "status": "active",
+    "decision_count": 0,
+    "generation": 0
+  },
+  "lifecycle": [],
+  "tier": "warm",
+  "properties": {
+    "type_id": "unsorted",
+    "values": {}
+  },
+  "created_at": "2026-01-03T01:00:00Z",
+  "updated_at": "2026-01-03T01:00:00Z",
+  "revisions": [
+    {
+      "context_id": "a5bcd418-a73a-5cc6-8f35-8c9b3f3d4ba9",
+      "revision": 1,
+      "title": "신규 구성원 안내 — 첫 주 읽을거리 모음",
+      "summary": "첫 주에 읽을 자료를 한곳에 모았습니다. 배포 절차 개요는 최신 여부 확인이 필요합니다.",
+      "tags": [
+        "onboarding"
+      ],
+      "kind": "note",
+      "state": "active",
+      "trust": "reported",
+      "body": "---\naudience: new members\n---\n# 배경\n새 구성원이 첫 주에 읽을 자료를 모았습니다.\n\n# 기록\n- 저장소 구조 안내\n- 배포 절차 개요\n\n# 출처와 관련 자료\n팀 위키의 온보딩 문서.\n\n# 확인할 점\n배포 절차 개요가 최신인지 확인이 필요합니다.\n",
+      "sections": [
+        {
+          "id": "412ddc7fac031417",
+          "title": "",
+          "text": "---\naudience: new members\n---\n",
+          "sha256": "ae705180225c777b2ea7f16aada38e980310345e592e1a86e098a21fba8671bb"
+        },
+        {
+          "id": "b6297cb7a6447f29",
+          "title": "배경",
+          "text": "# 배경\n새 구성원이 첫 주에 읽을 자료를 모았습니다.\n\n",
+          "sha256": "45b5dcf27f4378c93034cfa00c8144507337f3eea56fdd6e982b55056404b484"
+        },
+        {
+          "id": "bece4dff96be3ed8",
+          "title": "기록",
+          "text": "# 기록\n- 저장소 구조 안내\n- 배포 절차 개요\n\n",
+          "sha256": "fe252c133503e93379b08cb1355663fb3b8b07df7deaf8b4d66d46ee38bac4ba"
+        },
+        {
+          "id": "633d679eaf04e2b9",
+          "title": "출처와 관련 자료",
+          "text": "# 출처와 관련 자료\n팀 위키의 온보딩 문서.\n\n",
+          "sha256": "963707be2e600f9f7496fe98fb1da38eecca32fb8f8606093c23b5abcff60e3f"
+        },
+        {
+          "id": "eb64c1ae46f70294",
+          "title": "확인할 점",
+          "text": "# 확인할 점\n배포 절차 개요가 최신인지 확인이 필요합니다.\n",
+          "sha256": "38fe391ff9041e961a3ebd0a3157df8804642821f543c3f6e63a6f8424d02179"
+        }
+      ],
+      "provenance": [],
+      "supersedes": [],
+      "created_at": "2026-01-03T01:00:00Z"
+    }
+  ]
+}

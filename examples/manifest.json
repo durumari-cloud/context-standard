@@ -1,0 +1,16 @@
+{
+  "version": "0.1.0",
+  "note": "Synthetic examples. Every name, id and URL is invented; example.com is the only host.",
+  "examples": [
+    { "file": "documents/decision-retry-policy.json", "schema": "urn:durumari-context-standard:0.1:schema:document" },
+    { "file": "documents/spec-http-client.json", "schema": "urn:durumari-context-standard:0.1:schema:document" },
+    { "file": "documents/issue-export-timeout.json", "schema": "urn:durumari-context-standard:0.1:schema:document" },
+    { "file": "documents/work-log-context-form.json", "schema": "urn:durumari-context-standard:0.1:schema:document" },
+    { "file": "documents/policy-review-before-merge.json", "schema": "urn:durumari-context-standard:0.1:schema:document" },
+    { "file": "documents/note-onboarding-ko.json", "schema": "urn:durumari-context-standard:0.1:schema:document" },
+    { "file": "documents/idea-withdrawn.json", "schema": "urn:durumari-context-standard:0.1:schema:document" },
+    { "file": "work-logs/stream-csv-export.json", "schema": "urn:durumari-context-standard:0.1:schema:work-log" },
+    { "file": "document-types/custom-incident.json", "schema": "urn:durumari-context-standard:0.1:schema:document-type" },
+    { "file": "properties/issue-status-event.json", "schema": "urn:durumari-context-standard:0.1:schema:properties#/$defs/event" }
+  ]
+}
