@@ -1,0 +1,27 @@
+# Dependency update bot (R9-5): weekly, minor and patch updates grouped into one PR per
+# ecosystem, at most 5 open PRs per ecosystem. Major updates arrive one PR each.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: /conformance
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Asia/Seoul
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Asia/Seoul
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
